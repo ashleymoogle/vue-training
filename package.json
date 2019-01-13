@@ -1,0 +1,8 @@
+{
+  "name": "vue-training",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ashleymoogle/vue-training.git",
+  "author": "Romain Bonhomme <romain.bonhomme89@gmail.com>",
+  "license": "MIT"
+}
