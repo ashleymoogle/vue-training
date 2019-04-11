@@ -1,18 +1,12 @@
 
 <template>
     <div id="app">
-
-        <div class="title">HELLO</div>
-        <Home/>
-        <div class="nem">
-            {{derp}}
-        </div>
-        <button v-on:click="changeNem()">change </button>
-        <div v-for="album in albums" v-bind:key="album.id"> 
+        <div class="title">I'm <span>app.vue</span></div>
+        <Home class="wrapped"/>
+        <div class="databind">
             <h1>
-                {{album.title}}
+                {{ something }}
             </h1>
-            <img :src="album.url"/>
         </div>
     </div>
 </template>
@@ -22,36 +16,33 @@
     export default {
         data() {
             return {
-                derp: 'je suis un homme',
-                albums: []
+                something: 'Another thing'
             }
         },
-        methods: {
-            changeNem() {
-                this.derp = 'antoine'
-                console.log("pass")
-            },
-            getData() {
-                fetch("https://jsonplaceholder.typicode.com/photos").then(data => 
-                    data.json()
-                ).then((json) => {
-                    console.log(json)
-                    this.albums=json.slice(0,20)
-                })
-            }
-        },
-        created() {
-            this.getData()
-        },
-        components: {Home}
+        components: { Home }
     }
 </script>
 
-<style scoped> 
+<style lang="scss">
+  #app {
+    border: 2px dashed rebeccapurple;
+    padding: 10px;
     .title {
-        color:rebeccapurple;
+      color:rgb(51, 116, 153);
+      span {
+        color: aqua;
+        font-weight: bolder;
+        text-decoration: underline;
+        font-style: italic;
+      }
     }
-    .nem {
+    .wrapped {
+      margin: 10px;
+    }
+    .databind {
+      h1 {
         font-weight: bold;
+      }
     }
+  }
 </style>

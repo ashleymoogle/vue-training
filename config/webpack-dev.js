@@ -2,7 +2,7 @@ const webpack = require('webpack')
 exports.devServer = function (options) {
     return {
         devServer: {
-            port: 3030,
+            port: 3040,
             historyApiFallback: true,
             hot: true,
             inline: true,

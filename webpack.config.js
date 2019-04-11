@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
 const merge = require('webpack-merge');
 const argv = require('yargs').argv;
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
@@ -114,17 +113,7 @@ const config = {
         }),
         new CopyWebpackPlugin([
             { from: 'src/index.html', to: path.resolve(__dirname, 'build') }
-        ]),
-        new ManifestPlugin({
-            fileName: path.join(__dirname, '/build/manifest.json'),
-            filter: function(file) {
-                return !file.name.includes('fonts/') && !file.name.includes('.map') && !file.name.includes('.gz');
-            },
-            map: function(file) {
-                file.name = file.name.replace('.', '_');
-                return file;
-            }
-        })
+        ])
     ]
 };
 
